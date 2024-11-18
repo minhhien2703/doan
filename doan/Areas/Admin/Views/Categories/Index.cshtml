@@ -1,0 +1,40 @@
+﻿@model IEnumerable<doan.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 >DANH MỤC SẢN PHẨM</h2>
+
+<p>
+
+</p>
+<table class="table  col-md-6">
+    <tr>
+        <th >
+            @*@Html.DisplayNameFor(model => model.CategoryName)*@
+            Tên danh mục
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id = item.CategoryID }, new { @class = "btn btn-primary btn-sm" }) |
+
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.CategoryID }, new { @class = "btn btn-primary btn-sm" }) |
+
+            @Html.ActionLink("Xóa", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-primary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Thêm mới","Create", null, new { @class = "btn btn-primary btn-sm" })
+</p>

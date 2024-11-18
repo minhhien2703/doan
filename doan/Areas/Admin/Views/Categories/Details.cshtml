@@ -1,0 +1,27 @@
+﻿@model doan.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Thông tin chi tiết danh mục</h2>
+
+<div>
+    <hr />
+    <dl class="media-middle">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CategoryName)*@
+            Tên danh mục 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.CategoryID }, new { @class = "btn btn-primary btn-sm" }) |
+    @Html.ActionLink("Back", "Index", new { id = Model.CategoryID }, new { @class = "btn btn-primary btn-sm" })
+</p>

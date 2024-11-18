@@ -1,0 +1,39 @@
+﻿@model doan.Models.ViewModel.HomeProductVM
+@{
+    ViewBag.Title = "Customer Home Page";
+    <link rel="stylesheet" type="text/css" href="~/Content/myStyle/CustumerHome.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/anh/banner.jpg" />
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+
+}
+@*phan banner*@
+<section class="container-fluid banner">
+    <div class="banner-container">
+        <img class="img-fluid" style="width:100%" src="~/Content/anh/banner.jpg" />
+        @*<h2>Chào mừng đến với trang web HIKI</h2>
+            <p>Mua sắm trực tuyến với hàng ngàn sản phẩm đa dạng và chât lượng</p>*@
+        <a href="#" class="btnBanner">Bắt đầu mua sắm</a>
+    </div>
+</section>
+
+@*phan tim kiem san pham*@
+<section class="container-fluid searchProd">
+    <h2>Tìm kiếm sản phầm</h2>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div class="form-group search-container">
+            @Html.TextBoxFor(m => m.SearchTerm, new
+       {
+           @class = "search-input",
+           placeholder = "Nhập tên, mô tả hoặc chủng loại sản phẩm"
+       })
+            <button type="submit" class="search-button">Tìm kiếm</button>
+        </div>
+    }
+</section>
+
+@*san pham noi bat*@
+@Html.Partial("PVFeatureProduct", Model)
+
+@*san pham moi*@
+@Html.Partial("PVNewProduct", Model)
